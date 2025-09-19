@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CatalogoComponent } from './catalogo'; 
 import { ProductoService } from '../services/producto.service';
-import { of } from 'rxjs';
+import { of } from 'rxjs';    
 
-describe('CatalogoComponent', () => {
+describe('CatalogoComponent', () => {  
   let component: CatalogoComponent;
   let fixture: ComponentFixture<CatalogoComponent>;
 

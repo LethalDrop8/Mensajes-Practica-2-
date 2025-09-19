@@ -1,0 +1,42 @@
+<h1 class="text-2xl font-bold mb-4">Catálogo</h1>
+
+
+<div class="mb-4">
+  <a
+    routerLink="/carrito"
+    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Ver carrito completo
+  </a>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div
+    *ngFor="let producto of productos; trackBy: trackId"
+    class="p-4 border rounded shadow"
+  >
+    <img
+      [src]="producto.imagen"
+      [alt]="producto.nombre"
+      class="w-full h-40 object-cover mb-2 rounded"
+    />
+
+    <h3 class="font-semibold text-lg">{{ producto.nombre }}</h3>
+    <p class="mb-1">{{ producto.descripcion }}</p>
+    <p class="text-green-600 font-bold mb-2">
+      Precio: {{ producto.precio | currency }}
+    </p>
+
+    <button
+      class="mt-2 bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+      (click)="agregar(producto)"
+    >
+      Agregar al carrito
+    </button>
+  </div>
+</div>
+
+<hr class="my-6" />
+
+<!-- carrito embebido bajo el catálogo -->
+<app-carrito></app-carrito>

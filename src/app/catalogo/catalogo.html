@@ -1,8 +1,8 @@
-<h2>Catalogo</h2>
+<h2>Catalogo</h2>    
 <div *ngFor="let producto of productos">
   <h3>{{ producto.nombre }}</h3>
   <p>{{ producto.descripcion }}</p>
   <p>Precio: ${{ producto.precio }}</p>
   <img [src]="producto.imagen" alt="{{ producto.nombre }}" width="200" />
 
-</div>
+</div> 

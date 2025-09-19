@@ -1,0 +1,45 @@
+<div class="contenedor-carrito">
+  <h2 class="titulo-carrito">Carrito</h2>
+
+
+  <div *ngIf="carrito().length === 0" class="carrito-vacio">
+    Tu carrito está vacío.
+  </div>
+
+  
+  <div *ngIf="carrito().length > 0">
+    <ul class="lista-items">
+      <li *ngFor="let p of carrito()" class="item-carrito">
+        <img class="img-item" [src]="p.imagen" [alt]="p.nombre" />
+
+        <div class="info-item">
+          <p class="nombre-item">{{ p.nombre }}</p>
+          <p class="descripcion-item">{{ p.descripcion }}</p>
+        </div>
+
+        <span class="precio-unitario">{{ p.precio | currency }}</span>
+
+        
+        <div class="controles-cantidad">
+          <button class="btn-cantidad" disabled>-</button>
+          <span class="cantidad">1</span>
+          <button class="btn-cantidad" disabled>+</button>
+        </div>
+
+        <button class="btn-remover" (click)="quitar(p.id)">×</button>
+      </li>
+    </ul>
+
+    <div class="resumen-carrito">
+      <div class="fila-resumen total">
+        <span>Total</span>
+        <span class="precio-total">{{ total() | currency }}</span>
+      </div>
+
+      <div class="acciones-carrito">
+        <button class="btn-limpiar" (click)="vaciar()">Vaciar</button>
+        <button class="btn-comprar-final" (click)="exportarXML()">Exportar XML</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,14 +4,14 @@ import { ProductoService } from "../services/producto.service";
 import { NgForOf } from "@angular/common";
 
 @Component({
-    selector : 'app-catalogo',
+    selector : 'app-catalogo',   
     templateUrl: './catalogo.html',
-    styleUrls: ['./catalogo.css'],
-    imports: [NgForOf]
+    styleUrls: ['./catalogo.css'],   
+    imports: [NgForOf]       
 })
 
 export class CatalogoComponent implements OnInit{
-    productos : Product[] = [];
+    productos : Product[] = [];  
     constructor(private productoService: ProductoService){}
     async ngOnInit() {
       this.productos = await this.productoService.getProductos();
